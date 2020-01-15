@@ -45,7 +45,7 @@ room['treasure'].s_to = room['narrow']
 
 player = Player(room['outside'])
 print(player)
-
+print(player.location)
 # Write a loop that:
 #
 # * Prints the current room name
@@ -60,15 +60,35 @@ print(player)
 directions = input("[n] North [e] East [s] South [w] West :")
 while not directions == "q":
     if directions == "w":
+        if player.location.w_to:
+            player.location = player.location.w_to
+            print("NEW LOCATION", player.location)
+        else:
+            print("no go bro")
         print("You went west")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "n":
+        if player.location.n_to:
+            player.location = player.location.n_to
+            print("NEW LOCATION", player.location)
+        else:
+            print("no go bro")
         print("You went north")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "e":
-        print("You went east")
+        if player.location.e_to:
+            player.location = player.location.e_to
+            print("NEW LOCATION", player.location)
+        else:
+            print("no go bro")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "s":
+        if player.location.s_to:
+            player.location = player.location.s_to
+            print("NEW LOCATION", player.location)
+        else:
+            print("no go bro")
+
         print("You went south")
         directions = input("[n] North [e] East [s] South [w] West :")
     else:
