@@ -60,36 +60,33 @@ print(player.location)
 directions = input("[n] North [e] East [s] South [w] West :")
 while not directions == "q":
     if directions == "w":
-        if player.location.w_to:
+        try:
             player.location = player.location.w_to
-            print("NEW LOCATION", player.location)
-        else:
+            print(player)
+        except:
             print("no go bro")
-        print("You went west")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "n":
-        if player.location.n_to:
+        try:
             player.location = player.location.n_to
-            print("NEW LOCATION", player.location)
-        else:
+            print(player)
+        except:
             print("no go bro")
-        print("You went north")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "e":
-        if player.location.e_to:
+        try:
             player.location = player.location.e_to
-            print("NEW LOCATION", player.location)
-        else:
+            print(player)
+        except:
             print("no go bro")
         directions = input("[n] North [e] East [s] South [w] West :")
     elif directions == "s":
-        if player.location.s_to:
+        try:
             player.location = player.location.s_to
-            print("NEW LOCATION", player.location)
-        else:
+            print(player)
+        except:
             print("no go bro")
 
-        print("You went south")
         directions = input("[n] North [e] East [s] South [w] West :")
     else:
         print("please enter valid directions")
