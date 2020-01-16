@@ -62,13 +62,15 @@ directions = input("[n] North [e] East [s] South [w] West :")
 
 def pick_up(item):
     player.items.append(item)
-#    player.location.items.remove(item)
+    player.location.items.pop()
     print("LOCATION ITEMS!!!", player.location.items)
+    print("PLAYER ITEMS!!!", player.items)
 
 def put_down(item):
     player.location.items.append(item)
     player.items.remove(item)
     print("ITEMS IN LOCATION NOW", player.location.items)
+    print("No Longer in Player Items???", player.items)
 
 while not directions == "q":
     if directions == "w":
