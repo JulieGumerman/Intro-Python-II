@@ -45,8 +45,18 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 
 player = Player("mara_jade", room['outside'])
-item = Item("Reverie", "whoodle")
-room['outside'].items.append(item)
+
+reverie = Item("Reverie", "super-powered poodle mix")
+flashlight = Item("headlamp", "because light makes it easier to see")
+multitool = Item("multitool", "like a knife...only cooler")
+old_map = Item("map", "an old map of the cave system, complete with notes")
+hooded_sweatshirt = Item("hooded sweatshirt", "a black hoodie with the old Lambda logo. I bet this is worth some cash")
+
+room['outside'].items.append(reverie)
+room['foyer'].items.append(flashlight)
+room['overlook'].items.append(multitool)
+room['narrow'].items.append(old_map)
+
 print(player.name, player.location)
 # Write a loop that:
 #
