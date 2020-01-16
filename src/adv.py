@@ -46,6 +46,7 @@ room['treasure'].s_to = room['narrow']
 
 player = Player("mara_jade", room['outside'])
 item = Item("Reverie", "whoodle")
+room['outside'].items.append(item)
 print(player.name, player.location)
 # Write a loop that:
 #
@@ -57,8 +58,18 @@ print(player.name, player.location)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-
 directions = input("[n] North [e] East [s] South [w] West :")
+
+def pick_up(item):
+    player.items.append(item)
+#    player.location.items.remove(item)
+    print("LOCATION ITEMS!!!", player.location.items)
+
+def put_down(item):
+    player.location.items.append(item)
+    player.items.remove(item)
+    print("ITEMS IN LOCATION NOW", player.location.items)
+
 while not directions == "q":
     if directions == "w":
         try:
@@ -90,7 +101,13 @@ while not directions == "q":
 
         directions = input("[n] North [e] East [s] South [w] West :")
     elif " " in directions:
-        print("I WORK!!!!!")
+        if "get" in directions:
+            command_line = directions.split(" ")
+            pick_up(command_line[1])
+            print("Items!!!!", player.items)
+        elif "drop" in directions:
+            command_line = directions.split(" ")
+            put_down(command_line[1])
         directions = input("[n] North [e] East [s] South [w] West :")
     else:
         print("please enter valid directions")
