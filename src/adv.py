@@ -73,23 +73,23 @@ directions = input("~~~>")
 
 
 
-def pick_up(the_item):
-    for item in player.location.items:
-        if the_item in item.name:
-            player.items.append(item)
-            player.location.items.remove(item)
-            print(f"You have picked up {item.name}")
-        else:
-            print("That item is not in your current location.")
+# def pick_up(the_item):
+#     for item in player.location.items:
+#         if the_item in item.name:
+#             player.items.append(item)
+#             player.location.items.remove(item)
+#             print(f"You have picked up {item.name}")
+#         else:
+#             print("That item is not in your current location.")
 
-def put_down(the_item):
-    for item in player.items:
-        if the_item in item.name:
-            player.location.items.append(item)
-            player.items.remove(item)
-            print(f"You have put down {item.name}.")
-        else:
-            print("That item is not currently in your player's backpack")
+# def put_down(the_item):
+#     for item in player.items:
+#         if the_item in item.name:
+#             player.location.items.append(item)
+#             player.items.remove(item)
+#             print(f"You have put down {item.name}.")
+#         else:
+#             print("That item is not currently in your player's backpack")
 
 
 
@@ -132,14 +132,14 @@ while not directions == "q":
     elif " " in directions:
         if "get" in directions:
             command_line = directions.split(" ")
-            pick_up(command_line[1])
+            player.pick_up(command_line[1])
             print("These are your current items", player.items)
             print("These items are currently in the room", player.location.items)
             print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
             directions = input("~~~>")
         elif "drop" in directions:
             command_line = directions.split(" ")
-            put_down(command_line[1])
+            player.put_down(command_line[1])
             print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
             directions = input("~~~>")
         else:
