@@ -1,6 +1,7 @@
 from room import Room
 from player import Player
 from item import Item
+from monster import Monster
 
 # Declare all the rooms
 
@@ -58,6 +59,8 @@ new_player= input("What is your name??? ~~~>" )
 player = Player(new_player, room['outside'])
 print(player)
 
+#Items
+
 reverie = Item("Reverie", "super-powered poodle mix")
 flashlight = Item("headlamp", "because light makes it easier to see")
 multitool = Item("multitool", "like a knife...only cooler")
@@ -68,6 +71,20 @@ room['outside'].items.append(reverie)
 room['foyer'].items.append(flashlight)
 room['overlook'].items.append(multitool)
 room['narrow'].items.append(old_map)
+
+#Monsters
+
+imposta_syndrome = Monster("Imposta Syndrome", "makes you feel stupid")
+the_wanderer = Monster("The Wanderer", "has too many girlfriends")
+depression = Monster("Depression", "sucks away your will to do anything")
+delusion = Monster("Delusion", "thinking you're awesome when you're really not")
+
+room['foyer'].monster = imposta_syndrome
+room['pool'].monster = the_wanderer
+room['overlook'].monster = depression
+room['treasure'].monster = delusion
+
+
 
 print(player.name, player.location)
 # Write a loop that:

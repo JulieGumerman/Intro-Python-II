@@ -6,5 +6,6 @@ class Room:
         self.name = name
         self.description = description
         self.items = []
+        self.monster = None
     def __repr__(self):
         return self.name + '\n' + self.description + '\n' + str(self.items)
