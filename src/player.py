@@ -7,4 +7,4 @@ class Player:
         self.location = location
         self.items = []
     def __repr__(self):
-        return f"Your location is the: \n{self.location}"
+        return f"Your location is the: {self.location}"

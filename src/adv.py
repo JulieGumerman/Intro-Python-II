@@ -45,6 +45,7 @@ room['treasure'].s_to = room['narrow']
 # Make a new player object that is currently in the 'outside' room.
 
 player = Player("mara_jade", room['outside'])
+item = Item("Reverie", "whoodle")
 print(player.name, player.location)
 # Write a loop that:
 #
@@ -87,6 +88,9 @@ while not directions == "q":
         except:
             print("no go bro")
 
+        directions = input("[n] North [e] East [s] South [w] West :")
+    elif " " in directions:
+        print("I WORK!!!!!")
         directions = input("[n] North [e] East [s] South [w] West :")
     else:
         print("please enter valid directions")
