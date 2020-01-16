@@ -58,17 +58,26 @@ print(player.name, player.location)
 # Print an error message if the movement isn't allowed.
 #
 # If the user enters "q", quit the game.
-directions = input("[n] North [e] East [s] South [w] West :")
+print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+directions = input(":")
 
-def pick_up(item):
-    player.items.append(item)
-    player.location.items.pop()
+def pick_up(the_item):
+    for item in player.location.items:
+        if the_item in item.name:
+            player.items.append(item)
+            player.location.items.remove(item)
+        else:
+            print("That item is not in your current location.")
     print("LOCATION ITEMS!!!", player.location.items)
     print("PLAYER ITEMS!!!", player.items)
 
-def put_down(item):
-    player.location.items.append(item)
-    player.items.remove(item)
+def put_down(the_item):
+    for item in player.items:
+        if the_item in item.name:
+            player.location.items.append(item)
+            player.items.remove(item)
+        else:
+            print("That item is not currently in your player's backpack")
     print("ITEMS IN LOCATION NOW", player.location.items)
     print("No Longer in Player Items???", player.items)
 
@@ -104,6 +113,7 @@ while not directions == "q":
         directions = input("[n] North [e] East [s] South [w] West :")
     elif " " in directions:
         if "get" in directions:
+            print("player.location.items", player.location.items, "before")
             command_line = directions.split(" ")
             pick_up(command_line[1])
             print("Items!!!!", player.items)
