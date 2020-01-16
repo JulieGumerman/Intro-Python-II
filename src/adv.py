@@ -69,71 +69,90 @@ print(player.name, player.location)
 #
 # If the user enters "q", quit the game.
 print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
-directions = input(":")
+directions = input("~~~>")
+
+
 
 def pick_up(the_item):
     for item in player.location.items:
         if the_item in item.name:
             player.items.append(item)
             player.location.items.remove(item)
+            print(f"You have picked up {item.name}")
         else:
             print("That item is not in your current location.")
-    print("LOCATION ITEMS!!!", player.location.items)
-    print("PLAYER ITEMS!!!", player.items)
 
 def put_down(the_item):
     for item in player.items:
         if the_item in item.name:
             player.location.items.append(item)
             player.items.remove(item)
+            print(f"You have put down {item.name}.")
         else:
             print("That item is not currently in your player's backpack")
-    print("ITEMS IN LOCATION NOW", player.location.items)
-    print("No Longer in Player Items???", player.items)
+
+
 
 while not directions == "q":
+    #directions logic
     if directions == "w":
         try:
             player.location = player.location.w_to
             print(player)
         except:
             print("no go bro")
-        directions = input("[n] North [e] East [s] South [w] West :")
+        print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+        directions = input("~~~>")
     elif directions == "n":
         try:
             player.location = player.location.n_to
             print(player)
         except:
             print("no go bro")
-        directions = input("[n] North [e] East [s] South [w] West :")
+        print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+        directions = input("~~~>")
     elif directions == "e":
         try:
             player.location = player.location.e_to
             print(player)
         except:
             print("no go bro")
-        directions = input("[n] North [e] East [s] South [w] West :")
+        print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+        directions = input("~~~>")
     elif directions == "s":
         try:
             player.location = player.location.s_to
             print(player)
         except:
             print("no go bro")
+        print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+        directions = input("~~~>")
 
-        directions = input("[n] North [e] East [s] South [w] West :")
+    #get and drop logic
     elif " " in directions:
         if "get" in directions:
-            print("player.location.items", player.location.items, "before")
             command_line = directions.split(" ")
             pick_up(command_line[1])
-            print("Items!!!!", player.items)
+            print("These are your current items", player.items)
+            print("These items are currently in the room", player.location.items)
+            print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+            directions = input("~~~>")
         elif "drop" in directions:
             command_line = directions.split(" ")
             put_down(command_line[1])
-        directions = input("[n] North [e] East [s] South [w] West :")
+            print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+            directions = input("~~~>")
+        else:
+            print("Please enter a valid command!")
+            print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+            directions = input("~~~>")
     else:
-        print("please enter valid directions")
-        directions = input("[n] North [e] East [s] South [w] West :")
+        print("please enter a valid command")
+        print("[n] North [e] East [s] South [w] West; drop [item]; get [item] ")
+        directions = input("~~~>")
+
 
 print("game over")
-directions = input("[n] North [e] East [s] South [w] West :")
+
+
+
