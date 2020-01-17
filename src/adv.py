@@ -109,7 +109,6 @@ def reset():
 
 
 while not directions == "q":
-    #directions logic
     if directions == "w":
         try:
             player.location = player.location.w_to
