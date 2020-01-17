@@ -61,17 +61,17 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
 * Add the ability to add items to rooms.
 
-  * The `Room` class should be extended with a `list` that holds the `Item`s
+  * [x] The `Room` class should be extended with a `list` that holds the `Item`s
     that are currently in that room.
 
-  * Add functionality to the main loop that prints out all the items that are
+  * [x] Add functionality to the main loop that prints out all the items that are
     visible to the player when they are in that room.
 
 * Add capability to add `Item`s to the player's inventory. The inventory can
   also be a `list` of items "in" the player, similar to how `Item`s can be in a
   `Room`.
 
-* Add a new type of sentence the parser can understand: two words.
+* [x] Add a new type of sentence the parser can understand: two words.
 
   * Until now, the parser could just understand one sentence form:
 
@@ -79,7 +79,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
     such as "n" or "q".
 
-  * But now we want to add the form:
+  * [x] But now we want to add the form:
 
     `verb` `object`
 
@@ -120,7 +120,7 @@ The `/src` directory contains the files `adv.py`, which is where the main logic 
 
 In arbitrary order:
 
-* Add more rooms
+* [x] Add more rooms
 
 * Add scoring
 
